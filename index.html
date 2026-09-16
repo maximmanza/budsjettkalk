@@ -1,39 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Budsjettkalkulator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-   <div class="kalkulator">
-        <input type="text" id="display" readonly>
 
-        <div class="knapper">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="addValue('/')">÷</button>
-            <button onclick="addValue('*')">×</button>
-            <button onclick="addValue('-')">−</button>
+    <main>
+        <h1>Budsjettkalkulator</h1>
+        <p>Legg til inntekter og utgifter for måneden.</p>
 
-            <button onclick="addValue('7')">7</button>
-            <button onclick="addValue('8')">8</button>
-            <button onclick="addValue('9')">9</button>
-            <button onclick="addValue('+')">+</button>
+        <section>
+            <h2>Legg til</h2>
 
-            <button onclick="addValue('4')">4</button>
-            <button onclick="addValue('5')">5</button>
-            <button onclick="addValue('6')">6</button>
-            <button onclick="calculate()">=</button>
+            <label for="type">Type:</label>
+            <select id="type">
+                <option value="inntekt">Inntekt</option>
+                <option value="utgift">Utgift</option>
+            </select>
 
-            <button onclick="addValue('1')">1</button>
-            <button onclick="addValue('2')">2</button>
-            <button onclick="addValue('3')">3</button>
-            <button onclick="addValue('0')">0</button>
-        </div>
-    </div>
+            <label for="kategori">Kategori:</label>
+            <input type="text" id="kategori" placeholder="For eksempel mat eller lønn">
 
+            <label for="belop">Beløp:</label>
+            <input type="number" id="belop" placeholder="Skriv beløp">
+
+            <button id="leggTil">Legg til</button>
+        </section>
+
+        <section>
+            <h2>Inntekter</h2>
+            <ul id="inntekter"></ul>
+        </section>
+
+        <section>
+            <h2>Utgifter</h2>
+            <ul id="utgifter"></ul>
+        </section>
+
+        <section class="resultat">
+            <h2>Månedlig saldo</h2>
+            <p id="saldo">0 kr</p>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
